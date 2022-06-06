@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-6">Prediccion por ciudad para cuentas normales</h1>
+
+      <form form method="POST" role="form", action="{{url_for('normalciudad')}}">
+        <div class="form-group">
+          <label for="city_name">Ciudad</label>
+          <select class="form-control" id="city_name" name="city_name">
+            <option>Acapulco</option>
+            <option>Aguascalientes</option>
+            <option>Campeche</option>
+            <option>Celaya</option>
+            <option>Chetumal</option>
+            <option>Chihuahua</option>
+            <option>Ciudad Obregon</option>
+            <option>Coatzacoalcos</option>
+            <option>Colima</option>
+            <option>Cordoba</option>
+            <option>Cuernavaca</option>
+            <option>Culiacan</option>
+            <option>Delicias</option>
+            <option>Durango</option>
+            <option>Guadalajara</option>
+            <option>Hermosillo</option>
+            <option>Irapuato</option>
+            <option>Jaurez CHIH</option>
+            <option>La Paz</option>
+            <option>Leon</option>
+            <option>Los Cabos</option>
+            <option>Los Mochis-Guasave</option>
+            <option>Manzanillo</option>
+            <option>Matamoros</option>
+            <option>Mazatlan</option>
+            <option>Merida</option>
+            <option>Mexicali</option>
+            <option>Mexico City</option>
+            <option>Monclova</option>
+            <option>Monterrey</option>
+            <option>Morelia</option>
+            <option>Navojoa</option>
+            <option>Nogales(SON)</option>
+            <option>Nuevo Laredo</option>
+            <option>Oaxaca</option>
+            <option>Pachuca</option>
+            <option>Poza Rica de Hidalgo</option>
+            <option>Puebla</option>
+            <option>Puerto Vallarta</option>
+            <option>Queretaro</option>
+            <option>Salamanca</option>
+            <option>Saltillo</option>
+            <option>San Cristobal de las Casas</option>
+            <option>San Juan del Rio</option>
+            <option>San Luis Potosi</option>
+            <option>San Miguel de Allende</option>
+            <option>Solidaridad</option>
+            <option>Tampico</option>
+            <option>Tapachula</option>
+            <option>Tehuacan</option>
+            <option>Tepic</option>
+            <option>Tijuana</option>
+            <option>Tlaxcala</option>
+            <option>Toluca</option>
+            <option>Villahermosa</option>
+            <option>Xalapa</option>
+            <option>Zacatecas</option>
+            <option>Victoria</option>
+            <option>Veracruz</option>
+            <option>Las Choapas</option>
+            <option>Cancun</option>
+            <option>Torreon</option>
+            <option>Tuxtla Gutierrez</option>
+            <option>Carmen</option>
+            <option>Ensenada</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+            <label for="shop_category">Categorias de Ventas</label>
+            <select class="form-control" id="shop_category" name="shop_category">
+              <option>Burger</option>
+              <option>Dessert</option>
+              <option>Coffee</option>
+              <option>Tacos</option>
+              <option>Mexican</option>
+              <option>Italian</option>
+              <option>Seafood</option>
+              <option>European</option>
+              <option>Sushi</option>
+              <option>Wings & Chicken</option>
+              <option>Tortas</option>
+              <option>Snacks</option>
+              <option>Drinks</option>
+              <option>American</option>
+              <option>Healthy</option>
+              <option>Pizza</option>
+              <option>Meat</option>
+              <option>Bakery</option>
+              <option>Asian</option>
+              <option>Ice Cream</option>
+              <option>Donuts</option>
+              <option>Latin American</option>
+              <option>Alcohol</option>
+              <option>Noodles And Pastas</option>
+              <option>Sandwiches</option>
+              <option>Retail</option>
+              <option>Pharmacy</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="complete_order_c">Ordenes completas por semana</label>
+            <input type="text" class="form-control" id="complete_order_c" name="complete_order_c">
+        </div>
+
+        <div class="form-group">
+            <label for="online_weeks">Semanas Online</label>
+            <input type="text" class="form-control" id="online_weeks" name="online_weeks">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-sm">
+            <h1 class="display-6">Parametros</h1>
+            <p>Ciudad: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{ciudad}}</div>
+            <p>Categorias de Ventas: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{categoriaventas}}</div>
+            <p>Ordenes completas por semana: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{ordenessemana}}</div>
+            <p>Semanas Online: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{semanasonline}}</div>
+          </div>
+
+          <div class="col-sm">      
+            <h1 class="display-6">Resultado</h1>
+            <p>Monto esperado en MXN: </p>
+            <div class="p-3 mb-2 bg-success text-white" value=${{prediction}}>${{prediction}}</div>
+          </div>
+
+
+        </div>
+      </div>
+
+    <div class="container">
+      
+
+
+    </div>
+</div>
+{% endblock %}

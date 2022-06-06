@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-6">Prediccion por estado sin separar cuentas clave de cuentas normales</h1>
+
+      <form form method="POST" role="form", action="{{url_for('generalestado')}}">
+        <div class="form-group">
+          <label for="estado">Estado</label>
+          <select class="form-control" id="estado" name="estado">
+            <option>Guerrero</option>
+            <option>Aguascalientes</option>
+            <option>Campeche</option>
+            <option>Guanajuato</option>
+            <option>Quintana Roo</option>
+            <option>Chihuahua</option>
+            <option>Sonora</option>
+            <option>Veracruz</option>
+            <option>Colima</option>
+            <option>Morelos</option>
+            <option>Sinaloa</option>
+            <option>Durango</option>
+            <option>Jalisco</option>
+            <option>Baja California Sur</option>
+            <option>Tamaulipas</option>
+            <option>Yucatan</option>
+            <option>Baja California</option>
+            <option>CDMX</option>
+            <option>Coahuila</option>
+            <option>Nuevo Leon</option>
+            <option>Michoacan</option>
+            <option>Oaxaca</option>
+            <option>Hidalgo</option>
+            <option>Puebla</option>
+            <option>Queretaro</option>
+            <option>Chiapas</option>
+            <option>San Luis Potosi</option>
+            <option>Nayarit</option>
+            <option>Tlaxcala</option>
+            <option>Estado de Mexico</option>
+            <option>Tabasco</option>
+            <option>Zacatecas</option>
+            <option></option>
+          </select>
+        </div>
+      
+        <div class="form-group">
+            <label for="shop_type">Tipo de Cuenta</label>
+            <select class="form-control" id="shop_type" name="shop_type">
+              <option>CN</option>
+              <option>CC</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="shop_category">Categorias de Ventas</label>
+            <select class="form-control" id="shop_category" name="shop_category">
+              <option>Burger</option>
+              <option>Dessert</option>
+              <option>Coffee</option>
+              <option>Tacos</option>
+              <option>Mexican</option>
+              <option>Italian</option>
+              <option>Seafood</option>
+              <option>European</option>
+              <option>Sushi</option>
+              <option>Wings & Chicken</option>
+              <option>Tortas</option>
+              <option>Snacks</option>
+              <option>Drinks</option>
+              <option>American</option>
+              <option>Healthy</option>
+              <option>Pizza</option>
+              <option>Meat</option>
+              <option>Bakery</option>
+              <option>Asian</option>
+              <option>Ice Cream</option>
+              <option>Donuts</option>
+              <option>Latin American</option>
+              <option>Alcohol</option>
+              <option>Noodles And Pastas</option>
+              <option>Sandwiches</option>
+              <option>Retail</option>
+              <option>Pharmacy</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="complete_order_c">Ordenes completas por semana</label>
+            <input type="text" class="form-control" id="complete_order_c" name="complete_order_c">
+        </div>
+
+        <div class="form-group">
+            <label for="online_weeks">Semanas Online</label>
+            <input type="text" class="form-control" id="online_weeks" name="online_weeks">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-sm">
+            <h1 class="display-6">Parametros</h1>
+            <p>Estado: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{estado}}</div>
+            <p>Tipo de Cuenta: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{tipocuenta}}</div>
+            <p>Categorias de Ventas: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{categoriaventas}}</div>
+            <p>Ordenes completas por semana: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{ordenessemana}}</div>
+            <p>Semanas Online: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{semanasonline}}</div>
+          </div>
+
+          <div class="col-sm">      
+            <h1 class="display-6">Resultado</h1>
+            <p>Monto esperado en MXN: </p>
+            <div class="p-3 mb-2 bg-success text-white" value=${{prediction}}>${{prediction}}</div>
+          </div>
+
+
+        </div>
+      </div>
+
+    <div class="container">
+      
+
+
+    </div>
+</div>
+{% endblock %}

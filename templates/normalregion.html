@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-6">Prediccion por region para cuentas normales</h1>
+
+      <form form method="POST" role="form", action="{{url_for('normalregion')}}">
+        <div class="form-group">
+          <label for="region">Region</label>
+          <select class="form-control" id="region" name="region">
+            <option>Región Suroeste</option>
+            <option>Región Centronorte</option>
+            <option>Región Sureste</option>
+            <option>Región Noroeste</option>
+            <option>Región Oriente</option>
+            <option>Región Occidente</option>
+            <option>Región Centrosur</option>
+            <option>Región Noreste</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+            <label for="shop_category">Categorias de Ventas</label>
+            <select class="form-control" id="shop_category" name="shop_category">
+              <option>Burger</option>
+              <option>Dessert</option>
+              <option>Coffee</option>
+              <option>Tacos</option>
+              <option>Mexican</option>
+              <option>Italian</option>
+              <option>Seafood</option>
+              <option>European</option>
+              <option>Sushi</option>
+              <option>Wings & Chicken</option>
+              <option>Tortas</option>
+              <option>Snacks</option>
+              <option>Drinks</option>
+              <option>American</option>
+              <option>Healthy</option>
+              <option>Pizza</option>
+              <option>Meat</option>
+              <option>Bakery</option>
+              <option>Asian</option>
+              <option>Ice Cream</option>
+              <option>Donuts</option>
+              <option>Latin American</option>
+              <option>Alcohol</option>
+              <option>Noodles And Pastas</option>
+              <option>Sandwiches</option>
+              <option>Retail</option>
+              <option>Pharmacy</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="complete_order_c">Ordenes completas por semana</label>
+            <input type="text" class="form-control" id="complete_order_c" name="complete_order_c">
+        </div>
+
+        <div class="form-group">
+            <label for="online_weeks">Semanas Online</label>
+            <input type="text" class="form-control" id="online_weeks" name="online_weeks">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <div class="row">
+
+          <div class="col-sm">
+            <h1 class="display-6">Parametros</h1>
+            <p>Region: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{region}}</div>
+            <p>Categorias de Ventas: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{categoriaventas}}</div>
+            <p>Ordenes completas por semana: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{ordenessemana}}</div>
+            <p>Semanas Online: </p>
+            <div class="p-3 mb-2 bg-primary text-white">{{semanasonline}}</div>
+          </div>
+
+          <div class="col-sm">      
+            <h1 class="display-6">Resultado</h1>
+            <p>Monto esperado en MXN: </p>
+            <div class="p-3 mb-2 bg-success text-white" value=${{prediction}}>${{prediction}}</div>
+          </div>
+
+
+        </div>
+      </div>
+
+    <div class="container">
+      
+
+
+    </div>
+</div>
+{% endblock %}
